@@ -1,1 +1,1 @@
-# astromentist
+# Astro Mentis
