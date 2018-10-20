@@ -143,6 +143,17 @@ Custom nvbar color
                         </ul>
                     </div>
                     <div class="btn-group">
+                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                           title="Font Color">
+                            <i class="fa fa-tint"></i>&nbsp;<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="btn" data-edit="foreColor #ff0000" title="Use Red Color">Red</a></li>
+                            <li><a class="btn" data-edit="foreColor #00ff00" title="Use Green Color">Green</a></li>
+                            <li><a class="btn" data-edit="foreColor #0000ff" title="Use Blue Color">Blue</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
                         <a class="btn btn-default" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
                         <a class="btn btn-default" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
                         <a class="btn btn-default" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
@@ -196,9 +207,6 @@ Custom nvbar color
                 <div id="editor" style="height:50px" class="lead" data-placeholder="Go ahead&hellip;"></div>
             </div>
         </div>
-        <div id="disp" style="display: none;"><canvas id="comp"></canvas></div>
-        <video id="video" autoplay width="300" style="display:none"></video>
-        <canvas id="canvas" style="width:300px;display:none;"></canvas>
     </div>
 
     <div class="navbar navbar-inverse navbar-fixed-bottom" style="background:#5b8930;border-style:none">
@@ -212,7 +220,6 @@ Custom nvbar color
     <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
     <script src="js/libs/prettify.js"></script>
     <script src="js/libs/bootstrap-wysiwyg.min.js"></script>
-    <script type="text/javascript" src="js/slides.js"></script>
-    <script type="text/javascript" src="js/hand_gesture.js"></script>
+    <script type="text/javascript" src="js/text_editor.js"></script>
 </body>
 </html>
