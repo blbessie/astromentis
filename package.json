@@ -4,7 +4,8 @@
 	"description": "For Mind's Sake",
 	"main": "server.js",
 	"dependencies": {
-		"httpserver": "0.3.0"
+		"httpserver": "0.3.0",
+		"tingodb": "0.6.1"
 	},
 	"devDependencies": {},
 	"scripts": {

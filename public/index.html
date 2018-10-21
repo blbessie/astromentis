@@ -268,9 +268,9 @@ a {
         </div>
         <form class="form">
             <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <button type="submit" id="login-button"><a href="patient.html">Patient Login</a></button>
-            <button type="submit" id="login-button"><a href="therapist.html">Therapist Login</a></button>
+            <input type="password" placeholder="Password"> 
+            <button id="login-button" onclick="javascript: window.location.href='/login'">Patient Login</button>
+            <button id="login-button" onclick="window.location.href='patient.html';">Therapist Login</button>
 
 
         </form>
@@ -290,13 +290,3 @@ a {
     </ul>
 </div>
 </html>
-
-
-<script>
-     $("#login-button").click(function(event){
-         event.preventDefault();
-     
-     $('form').fadeOut(500);
-     $('.wrapper').addClass('form-success');
-});
-</script>

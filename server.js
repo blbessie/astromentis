@@ -3,7 +3,10 @@
 * Created by Korhan Akcura
 */
 var http = require('http');
+var url = require('url');
 var fs = require('fs');
+var Engine = require('tingodb')();
+var db = new Engine.Db('./db', {});
 //var parse = require('querystring').parse;
 
 function collectRequestData(request, callback) {
@@ -26,14 +29,18 @@ http.createServer(function (request, response) {
 	console.log('Page requested...');
 
 	if (request.method === 'POST') {
-		collectRequestData(request, result => {
-			console.log(result);
-			response.end(`Parsed data: ${result}`);
-		});
+		if (request.url == '/predict') {
+			collectRequestData(request, result => {
+				console.log(result);
+
+
+				response.end(`Parsed data: ${result}`);
+			});
+		}
 	}
 	else {
 
-		var filePath = './public' + request.url;
+		var filePath = './public' + url.parse(request.url, true).pathname;
 		if (filePath == './public/') {
 			// The default page
 			filePath = './public/index.html';
