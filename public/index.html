@@ -1,221 +1,301 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AstroMentis">
-    <meta name="authors" content="Korhan Akcura, Bessie Luo">
-    <title>AstroMentis</title>
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap3-wysihtml5.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="css/prettify.css" />
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/master.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-</head>
-<body>
-    <style>
+<style>
+ @font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Source Sans Pro ExtraLight'), local('SourceSansPro-ExtraLight'), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xKydSBYKcSV-LCoeQqfX1RYOo3i94_wlxdr.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+body ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+body :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  opacity: 1;
+  font-weight: 300;
+}
+body ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  opacity: 1;
+  font-weight: 300;
+}
+body :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+.wrapper {
+  background: #50a3a2;
+  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.wrapper.form-success .container h1 {
+  -webkit-transform: translateY(85px);
+          transform: translateY(85px);
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 0;
+  height: 400px;
+  text-align: center;
+}
+.container h1 {
+  font-size: 40px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-put;
+  font-weight: 200;
+}
+form {
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+  display:inline-block;
+  margin-top:30px;
+}
+form input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 20px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  transition-duration: 0.25s;
+  font-weight: 300;
+}
+form input:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+form input:focus {
+  background-color: white;
+  width: 300px;
+  color: #53e3a6;
+}
+form button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #53e3a6;
+  border-radius: 3px;
+  width: 200px;
+  margin-left:10px;
+  margin-right:10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25s;
+}
 
+form button:hover {
+  background-color: #f5f7f9;
+}
+.bg-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.bg-bubbles li {
+  position: absolute;
+  list-style: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+  bottom: -160px;
+  -webkit-animation: square 25s infinite;
+  animation: square 25s infinite;
+  transition-timing-function: linear;
+}
+.bg-bubbles li:nth-child(1) {
+  left: 10%;
+}
+.bg-bubbles li:nth-child(2) {
+  left: 20%;
+  width: 80px;
+  height: 80px;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+}
+.bg-bubbles li:nth-child(3) {
+  left: 25%;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+.bg-bubbles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.bg-bubbles li:nth-child(5) {
+  left: 70%;
+}
+.bg-bubbles li:nth-child(6) {
+  left: 80%;
+  width: 120px;
+  height: 120px;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.bg-bubbles li:nth-child(7) {
+  left: 32%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+}
+.bg-bubbles li:nth-child(8) {
+  left: 55%;
+  width: 20px;
+  height: 20px;
+  -webkit-animation-delay: 15s;
+          animation-delay: 15s;
+  -webkit-animation-duration: 40s;
+          animation-duration: 40s;
+}
+.bg-bubbles li:nth-child(9) {
+  left: 25%;
+  width: 10px;
+  height: 10px;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 40s;
+          animation-duration: 40s;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-bubbles li:nth-child(10) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+@-webkit-keyframes square {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+  }
+}
+@keyframes square {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+  }
+}
 #logo {
-            margin-top: 5px;
-            margin-left:0px;
-            margin-right:10px;
-            margin-bottom:0px;
-            width: 90px;
+            width: 100px;
             height: auto;
+            margin-bottom:-10px;
         }
-#profile_img{
-            margin-top: -5px;
-            margin-left:0px;
-            margin-right:2px;
-            margin-bottom:0px;
-            width: 30px;
-            height: auto;
-            font-family: 'Poppins', sans-serif;
-            font-size:    15px;
+#motto{
+    font-size:40px;
+     font-family: 'Source Sans Pro', sans-serif;
+     padding-left:10px;
 }
-#navbar_link {
-    font-family: 'Poppins', sans-serif;
-    font-size:    15px;
-    margin-top:5px;
-    margin-bottom:0px;
-    padding-bottom:0px;
-    color:black;
+a {
+  color:#53e3a6;
+  text-decoration: none;
+  padding: 10 20 10 20;
 }
-#navbar_link:hover{
-    color:white;
-}
+
+
 </style>
 
-    <!-- 
-Custom nvbar color 
--->
-    <nav class="navbar navbar-inverse" style="background:#CCCFBC;border-style:none">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        
-<nav class="navbar navbar-default" style="margin-bottom:3px;background:#5b8930">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="#"><img id="logo" src="images/alpha.png"></a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li><a href="#" id="navbar_link">Diary Log</a></li>
-            <li><a href="#" id="navbar_link">My Mental Health</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-item" id="navbar_link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img id="profile_img" src="images/profile.png"> Name<span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Sign Out</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <form class="navbar-form navbar-right" style="margin-top:15px;margin-bottom:3px;margin-right:-5px">
-            <div class="form-group" style="margin-bottom:-5px">
-                <input type="text" class="form-control" placeholder="Search..." style="height: 30px; width: 100px;">
-            </div>
-        </form>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-        </div>
-        <!-- Collection of nav links, forms, and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse" style="margin-bottom:3px;background:#CCCFBC">
-            <ul class="nav navbar-nav" >
-                <li><a href="#" onclick="previousSlide();" class="list-group-item list-group-item-warning" style="background:#e9f4e5;margin-right:10px;color:black;" 
-                onMouseOver="this.style.color='white'"
-                onMouseOut="this.style.color='black'">Save</a></li>
-                <li><a href="#" onclick="nextSlide();" class="list-group-item list-group-item-success" style="background:#e9f4e5;color:black"
-                onMouseOver="this.style.color='white'"
-                onMouseOut="this.style.color='black'">Scan Document</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
-                    <div class="btn-group">
-                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                           title="Font">
-                            <i class="fa fa-font"></i><b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu"></ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                           title="Font Size">
-                            <i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a data-edit="fontSize 5" class="fs-Five">Huge</a></li>
-                            <li><a data-edit="fontSize 3" class="fs-Three">Normal</a></li>
-                            <li><a data-edit="fontSize 1" class="fs-One">Small</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                           title="Font Color">
-                            <i class="fa fa-tint"></i>&nbsp;<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="btn" data-edit="foreColor #ff0000" title="Use Red Color">Red</a></li>
-                            <li><a class="btn" data-edit="foreColor #00ff00" title="Use Green Color">Green</a></li>
-                            <li><a class="btn" data-edit="foreColor #0000ff" title="Use Blue Color">Blue</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-                        <a class="btn btn-default" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-                        <a class="btn btn-default" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-                        <a class="btn btn-default" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
-                        <a class="btn btn-default" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
-                        <a class="btn btn-default" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-outdent"></i></a>
-                        <a class="btn btn-default" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-                        <a class="btn btn-default" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-                        <a class="btn btn-default" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-                        <a class="btn btn-default" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
-                        <div class="dropdown-menu input-append">
-                            <input placeholder="URL" type="text" data-edit="createLink" />
-                            <button class="btn" type="button">Add</button>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-unlink"></i></a>
-                        <span class="btn btn-default" title="Insert picture (or just drag & drop)" id="pictureBtn">
-                            <i class="fa fa-picture-o"></i>
-                            <input class="imgUpload" type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-                        </span>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
-                        <a class="btn btn-default" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
-                    </div>
-                    <input class="pull-right" type="text" data-edit="inserttext" id="voiceBtn" />
-                </div>
-            </form>
-        </div>
-    </nav>
-    <!-- Page Content -->
+<html>
+<div class="wrapper">
     <div class="container">
-        <div id="s0" style="display:none;">
-            <div id="template" style="height:50px" class="lead" data-placeholder="Go ahead&hellip;"></div>
+        <div style="margin-top:100px">
+     
+        <img id="logo" src="images/alpha.png">
+        <span id="motto">For Mind's Sake</span>
         </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div id="alerts"></div>
-            </div>
-            <div id="slides" class="col-xs-12">
-                <div id="editor" style="height:50px" class="lead" data-placeholder="Go ahead&hellip;"></div>
-            </div>
-        </div>
-    </div>
+        <form class="form">
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button type="submit" id="login-button"><a href="patient.html">Patient Login</a></button>
+            <button type="submit" id="login-button"><a href="therapist.html">Therapist Login</a></button>
 
-    <div class="navbar navbar-inverse navbar-fixed-bottom" style="background:#5b8930;border-style:none">
-        <div class="container">
-            <p class="navbar-text pull-left" style="color:black">© 2018 - AstroMentis</p>
-        </div>
+
+        </form>
     </div>
-    <!-- Load JS at the end -->
-    <script type="text/javascript" src="js/libs/jquery-3.1.1.min.js"></script>
-    <script src="js/libs/jquery.hotkeys.js"></script>
-    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
-    <script src="js/libs/prettify.js"></script>
-    <script src="js/libs/bootstrap-wysiwyg.min.js"></script>
-    <script type="text/javascript" src="js/text_editor.js"></script>
-</body>
+    
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
 </html>
+
+
+<script>
+     $("#login-button").click(function(event){
+         event.preventDefault();
+     
+     $('form').fadeOut(500);
+     $('.wrapper').addClass('form-success');
+});
+</script>
