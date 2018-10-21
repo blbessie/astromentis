@@ -269,8 +269,8 @@ a {
         <form class="form">
             <input type="text" placeholder="Username">
             <input type="password" placeholder="Password">
-            <button type="submit" id="login-button"><a href="patient.html">Patient Login</a></button>
-            <button type="submit" id="login-button"><a href="therapist.html">Therapist Login</a></button>
+            <button onclick="window.location.href = './patient.html';" id="login-button">Patient Login</button>
+            <button onclick="window.location.href = './therapist.html';" id="login-button2">Therapist Login</button>
 
 
         </form>
@@ -294,7 +294,7 @@ a {
     <!-- Load JS at the end -->
     <script type="text/javascript" src="js/libs/jquery-3.1.1.min.js"></script>
 <script>
-     $("#login-button").click(function(event){
+     $("#login-button, #login-button2").click(function(event){
          event.preventDefault();
      
      $('form').fadeOut(500);
