@@ -5,9 +5,10 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
+var bio = require('./bio-monitor-predict.js');
+var qrystr = require('querystring');
 //var Engine = require('tingodb')();
 //var db = new Engine.Db('./db', {});
-//var parse = require('querystring').parse;
 
 function collectRequestData(request, callback) {
 	const FORM_URLENCODED = 'application/x-www-form-urlencoded';
@@ -17,7 +18,7 @@ function collectRequestData(request, callback) {
 			body += chunk.toString();
 		});
 		request.on('end', () => {
-			callback(body);
+			callback(qrystr.parse(body));
 		});
 	}
 	else {
@@ -31,10 +32,20 @@ http.createServer(function (request, response) {
 	if (request.method === 'POST') {
 		if (request.url == '/predict') {
 			collectRequestData(request, result => {
-				console.log(result);
 
+				fs.readFile('./public/prediction.html', (err, data) => {
+					if (err) {
+						res.writeHead(500);
+						res.end(err);
+						return;
+					}
 
-				response.end(`Parsed data: ${result}`);
+					var prediction = bio.predict(result.num1, result.num2);
+					data = data.toString();
+					data = data.toString().replace(/\{\{ prediction \}\}/, prediction)
+					response.writeHead(200);
+					response.end(data, 'utf8');
+				});
 			});
 		}
 	}
