@@ -1,0 +1,4 @@
+objectId,patientId,therapistId,date,session,entry
+1,123,666,2018-08-20,1,I got bitten by a dog.
+2,123,666,2018-09-20,2,I got bitten by a rabbit.
+3,123,666,2018-10-20,3,I got bitten by a bear.
