@@ -41,7 +41,7 @@ http.createServer(function (request, response) {
 						return;
 					}
 
-					var prediction = bio.predict(result.num1, result.num2);
+					var prediction = bio.predict(result);
 					data = data.toString();
 					data = data.toString().replace(/\{\{ prediction \}\}/, prediction)
 					response.writeHead(200);
