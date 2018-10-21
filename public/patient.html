@@ -72,7 +72,7 @@ Custom nvbar color
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li><a href="#" id="navbar_link">Diary Log</a></li>
-            <li><a href="#" id="navbar_link">My Mental Health</a></li>
+            <li><a href="/therapist_aPatient.html?patientId=123" id="navbar_link">Upload Vital Signs</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -83,7 +83,7 @@ Custom nvbar color
                 <ul class="dropdown-menu">
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Settings</a></li>
-                    <li><a href="#">Sign Out</a></li>
+                    <li><a href="/index.html">Sign Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -111,7 +111,7 @@ Custom nvbar color
         <!-- Collection of nav links, forms, and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse" style="margin-bottom:3px;background:#CCCFBC">
             <ul class="nav navbar-nav" >
-                <li><a href="#" onclick="previousSlide();" class="list-group-item list-group-item-warning" style="background:#e9f4e5;margin-right:10px;color:black;" 
+                <li><a href="/therapist_aPatient.html?patientId=123" onclick="previousSlide();" class="list-group-item list-group-item-warning" style="background:#e9f4e5;margin-right:10px;color:black;" 
                 onMouseOver="this.style.color='white'"
                 onMouseOut="this.style.color='black'">Save</a></li>
                 <li><a href="#" onclick="nextSlide();" class="list-group-item list-group-item-success" style="background:#e9f4e5;color:black"
@@ -200,7 +200,13 @@ Custom nvbar color
                 <div id="alerts"></div>
             </div>
             <div id="slides" class="col-xs-12">
-                <div id="editor" style="height:50px" class="lead" data-placeholder="Go ahead&hellip;"></div>
+                <div id="editor" style="height:50px" class="lead" data-placeholder="Go ahead&hellip;">
+                Dear Fellow Earthers, <br/>
+                Today was a good day. A space bear passed by the International Space Station. Luckily it did not attack us. I got a good view of Earth.<br/>
+                <br/>
+                Astronaut #123
+
+            </div>
             </div>
         </div>
     </div>
