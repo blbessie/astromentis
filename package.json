@@ -4,6 +4,7 @@
 	"description": "For Mind's Sake",
 	"main": "server.js",
 	"dependencies": {
+		"fast-csv": "^2.4.1",
 		"httpserver": "0.3.0",
 		"querystring": "0.2.0"
 	},

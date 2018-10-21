@@ -131,7 +131,7 @@ Custom nvbar color
 
         </div>
 
-        <div align="center" style="overflow-y: scroll;">
+        <div align="center" style="overflow-y: scroll; margin: 25px 50px 75px 100px;">
             <h3>Verifying Data for Astronaut <script type="text/javascript">document.write(getSelectedPatientId());</script></h3>
            
                 <!-- <table border="2">
@@ -159,138 +159,247 @@ Custom nvbar color
                 <form name="reqAstronautForm" method="post" action="/predict">
                     <tr>
                         <td>
-                            param1
+                            Act.Max(g)
                         </td>
                         <td>
-                            <input type="text" name="param1" value="">
+                            <input type="text" name="Act.Max" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param2
+                            Act.Avg(g)
                         </td>
                         <td>
-                            <input type="text" name="param2" value="">
+                            <input type="text" name="Act.Avg" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param3
+                            Breath.Count(rep)
                         </td>
                         <td>
-                            <input type="text" name="param3" value="">
+                            <input type="text" name="Breath.Count" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param4
+                            HR.Avg(bpm)
                         </td>
                         <td>
-                            <input type="text" name="param4" value="">
+                            <input type="text" name="HR.Avg" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param5
+                            HR.Max(bpm)
                         </td>
                         <td>
-                            <input type="text" name="param5" value="">
+                            <input type="text" name="HR.Max" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param6
+                            HR.Min(bpm)
                         </td>
                         <td>
-                            <input type="text" name="param6" value="">
+                            <input type="text" name="HR.Min" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param7
+                            MV.Avg(L/min)
                         </td>
                         <td>
-                            <input type="text" name="param7" value="">
+                            <input type="text" name="MV.Avg" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param8
+                            Steps(rep)
                         </td>
                         <td>
-                            <input type="text" name="param8" value="">
+                            <input type="text" name="Steps" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param9
+                            Temperature.Avg(C)
                         </td>
                         <td>
-                            <input type="text" name="param9" value="">
+                            <input type="text" name="Temperature.Avg" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param10
+                            Tidalvolume.Avg(L)
                         </td>
                         <td>
-                            <input type="text" name="param10" value="">
+                            <input type="text" name="Tidalvolume.Avg" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param11
+                            Tidalvolume.Min(L)
                         </td>
                         <td>
-                            <input type="text" name="param11" value="">
+                            <input type="text" name="Tidalvolume.Min" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param12
+                            Recorded.Time(s)
                         </td>
                         <td>
-                            <input type="text" name="param12" value="">
+                            <input type="text" name="Recorded.Time" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param13
+                            ECG.Status.Ok(NA)
                         </td>
                         <td>
-                            <input type="text" name="param13" value="">
+                            <input type="text" name="ECG.Status.Ok" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param14
+                            ECG.Status.Disconnected(NA)
                         </td>
                         <td>
-                            <input type="text" name="param14" value="">
+                            <input type="text" name="ECG.Status.Disconnected" value="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            param15
+                            ECG.Status.50.60Hz(NA)
                         </td>
                         <td>
-                            <input type="text" name="param15" value="">
+                            <input type="text" name="ECG.Status.50.60Hz" value="">
                         </td>
                     </tr>
                     </tr>
                     <tr>
-                        <!-- <td align="right" colspan="1">
-                            <button id="btnAddParam">
-                                <tr>
-                                    <td>
-                                        param16
-                                    </td>
-                                    <td>
-                                        <input type="text" name="param16" value="">
-                                    </td>
-                                </tr>
-                            </button>
-                        </td> -->
+                        <td>
+                            ECG.Status.Staturated(NA)
+                        </td>
+                        <td>
+                            <input type="text" name="ECG.Status.Staturated" value="">
+                        </td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>
+                            ECG.Status.Artifacts(NA)
+                        </td>
+                        <td>
+                            <input type="text" name="ECG.Status.Artifacts" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Resp.Status.No.A(NA)
+                        </td>
+                        <td>
+                            <input type="text" name="Resp.Status.No.A" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Resp.Status.Baseline.B(NA)
+                        </td>
+                        <td>
+                            <input type="text" name="Resp.Status.Baseline.B" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Resp.Status.Noisy.A(NA)
+                        </td>
+                        <td>
+                            <input type="text" name="Resp.Status.Noisy.A" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Device.Status.ECG(NA)
+                        </td>
+                        <td>
+                            <input type="text" name="Device.Status.ECG" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Temperature.Core.Avg(C)
+                        </td>
+                        <td>
+                            <input type="text" name="Temperature.Core.Avg" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Temperature.Core.Max(C)
+                        </td>
+                        <td>
+                            <input type="text" name="Temperature.Core.Max" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Battery.Avg(V)
+                        </td>
+                        <td>
+                            <input type="text" name="Battery.Avg" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Battery.Max(V)
+                        </td>
+                        <td>
+                            <input type="text" name="Battery.Max" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Battery.Min(V)
+                        </td>
+                        <td>
+                            <input type="text" name="Battery.Min" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            MV.Adjusted.Avg(L/min)
+                        </td>
+                        <td>
+                            <input type="text" name="MV.Adjusted.Avg" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tidalvolume.Adjusted.Avg(L)
+                        </td>
+                        <td>
+                            <input type="text" name="Tidalvolume.Adjusted.Avg" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tidalvolume.Adjusted.Min(L)
+                        </td>
+                        <td>
+                            <input type="text" name="Tidalvolume.Adjusted.Min" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Temperature.Avg.1(C)
+                        </td>
+                        <td>
+                            <input type="text" name="Temperature.Avg.1" value="">
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="right" colspan="2">
                             <input type="submit" value="Submit"> 
                         </td>
@@ -322,7 +431,6 @@ Custom nvbar color
     </div>
     <!-- Load JS at the end -->
     <script type="text/javascript" src="js/libs/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="js/libs/d3.min.js"></script>
     <script src="js/libs/jquery.hotkeys.js"></script>
     <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
     <script src="js/libs/prettify.js"></script>
