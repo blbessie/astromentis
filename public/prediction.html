@@ -1,5 +1,213 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
-  <body>{{ prediction }}</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	   	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="AstroMentis">
+	    <meta name="author" content="AI Mentis">
+	    <title>AstroMentis</title>
+	    <link rel="icon" href="images/favicon.ico">
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap3-wysihtml5.min.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/prettify.css" />
+	    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" />
+	    <link rel="stylesheet" type="text/css" href="css/master.css">
+	    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <title>Prediction</title>
+        
+        
+        <!-- 1. Add these JavaScript inclusions in the head of your page -->
+        <script src="https://github.highcharts.com/highcharts.js"></script>
+        <script src="https://github.highcharts.com/modules/data.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+        crossorigin="anonymous"></script>
+        
+        
+        <!-- 2. Add the JavaScript to initialize the chart on document ready -->
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var options = {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Health Status'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: 'Health Index'
+                    }
+                },
+                series: []
+            };
+             
+            //var data = $.get("./data.csv");
+            var data = "Plum,Mary Jones,David Saint-Jacques,Joe Joe,Robin Bird\n Happy,8,4,6,5\n Sad,3,4,2,3\n Stress,86,76,79,77\n Warning,3,16,13,15";
+
+                                // Split the lines
+                    var lines = data.split('\n');
+                    lines.forEach(function(line, lineNo) {
+                        var items = line.split(',');
+                        
+                        // header line containes categories
+                        if (lineNo == 0) {
+                            items.forEach(function(item, itemNo) {
+                                if (itemNo > 0) options.xAxis.categories.push(item);
+                            });
+                        }
+                        
+                        // the rest of the lines contain data with their name in the first position
+                        else {
+                            var series = { 
+                                data: []
+                            };
+                            items.forEach(function(item, itemNo) {
+                                if (itemNo == 0) {
+                                    series.name = item;
+                                } else {
+                                    series.data.push(parseFloat(item));
+                                }
+                            });
+                            
+                            options.series.push(series);
+
+                        }
+                        
+                    });
+                    
+                    Highcharts.chart('container', options);
+           
+            
+        });
+        </script>
+        
+    </head>
+    <body>
+    	<style>
+
+			#logo {
+			            margin-top: 5px;
+			            margin-left:0px;
+			            margin-right:10px;
+			            margin-bottom:0px;
+			            width: 90px;
+			            height: auto;
+			        }
+			#profile_img{
+			            margin-top: -5px;
+			            margin-left:0px;
+			            margin-right:2px;
+			            margin-bottom:0px;
+			            width: 30px;
+			            height: auto;
+			            font-family: 'Poppins', sans-serif;
+			            font-size:    15px;
+			}
+			#navbar_link {
+			    font-family: 'Poppins', sans-serif;
+			    font-size:    15px;
+			    margin-top:5px;
+			    margin-bottom:0px;
+			    padding-bottom:0px;
+			    color:black;
+			}
+			#navbar_link:hover{
+			    color:white;
+			}
+			        #navbar_link:focus {
+			            background:none
+			        }
+		</style>
+
+		<nav class="navbar navbar-inverse" style="background:#CCCFBC;border-style:none">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        
+		<nav class="navbar navbar-default" style="margin-bottom:0px;background:#5b8930">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a href="#"><img id="logo" src="images/alpha.png"></a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#" id="navbar_link">Patients List</a></li>
+		        <li><a href="#" id="navbar_link">Find Patient</a></li>
+		      </ul>
+
+
+		      <ul class="nav navbar-nav navbar-right">
+		  
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-item" id="navbar_link" data-toggle="dropdown" >
+		            <img id="profile_img" src="images/profile.png"> Name<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Profile</a></li>
+		            <li><a href="#">Settings</a></li>
+		            <li><a href="/index.html">Sign Out</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+
+		      <form class="navbar-form navbar-right" style="margin-top:15px;margin-bottom:3px;margin-right:-5px">
+		          <div class="form-group" style="margin-bottom:-5px">
+		              <input type="text" class="form-control" placeholder="Search..." style="height: 30px; width: 100px;">
+		          </div>
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</nav>
+
+
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+
+        <div style="width: 800px; margin: 2em auto; padding: 1em; border: 1px solid red; border-radius: 0.5em">
+        	Note: Sample data for mental status prediction.
+        </div>
+        
+        <!-- 3. Add the container -->
+        <div id="container" style="width: 800px; height: 400px; margin: 0 auto;"></div>
+
+        <div style="width:75%; height:75%; margin: 0 auto"> 
+        	<img src="/images/diaryAnalysis.jpg">
+        </div>
+
+
+	    <div class="navbar navbar-inverse navbar-fixed-bottom" style="background:#5b8930;border-style:none">
+	        <div class="container">
+	            <p class="navbar-text pull-left" style="color:black">© 2018 - AstroMentis</p>
+	        </div>
+	    </div>
+        
+        <script type="text/javascript" src="js/libs/jquery-3.1.1.min.js"></script>
+	    <script src="js/libs/jquery.hotkeys.js"></script>
+	    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+	    <script src="js/libs/prettify.js"></script>
+	    <script src="js/libs/bootstrap-wysiwyg.min.js"></script>
+	    <script type="text/javascript" src="js/text_editor.js"></script>
+                
+    </body>
 </html>
-<script type="text/javascript" src="js/bio-monitor-predict.js"></script>
